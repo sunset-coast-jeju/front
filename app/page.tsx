@@ -56,7 +56,7 @@ function TopNav() {
             <div className="p-4">
               <div className="mb-4 flex items-center gap-2">
                 <div className="size-8 rounded-2xl bg-blue-600" />
-                <span className="font-semibold">Jeju Dolphin Caravan</span>
+                <span className="font-semibold">Sunset Coast</span>
               </div>
               <Separator />
               <div className="grid gap-2 py-4">
@@ -330,7 +330,7 @@ function Footer() {
         <div>
           <div className="mb-2 flex items-center gap-2">
             <div className="size-8 rounded-2xl bg-blue-600" />
-            <span className="font-semibold">Jeju Dolphin Caravan</span>
+            <span className="font-semibold">Sunset Coast</span>
           </div>
           <p className="text-sm text-muted-foreground">바다와 별빛이 가까운 곳, 제주 대정 카라반 캠핑장.</p>
         </div>
@@ -351,7 +351,7 @@ function Footer() {
           </div>
         </div>
       </div>
-      <div className="border-t py-6 text-center text-xs text-muted-foreground">© {new Date().getFullYear()} Jeju Dolphin Caravan. All rights reserved.</div>
+      <div className="border-t py-6 text-center text-xs text-muted-foreground">© {new Date().getFullYear()} Sunset Coast. All rights reserved.</div>
     </footer>
   );
 }
