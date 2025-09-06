@@ -38,10 +38,8 @@ export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="ko" suppressHydrationWarning>
       <body className={cn(inter.className, "min-h-screen bg-background text-foreground")}> 
-        {/* JSON-LD – LodgingBusiness/Campground */}
         <script
           type="application/ld+json"
-          // @ts-ignore
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
@@ -72,7 +70,6 @@ export default function RootLayout({ children }: PropsWithChildren) {
           <>
             <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} />
             <script
-              // @ts-ignore
               dangerouslySetInnerHTML={{
                 __html: `
                 window.dataLayer = window.dataLayer || [];
