@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { RESERVE_URL } from "@/lib/constants";
 import { Menu, Phone, Waves } from "lucide-react";
 
 const NAV_ITEMS = [
@@ -68,25 +69,36 @@ export default function Navbar() {
               {item.label}
             </Link>
           ))}
+        </div>
 
-          <div className="ml-2 flex items-center gap-2">
-            <Button
-              asChild
-              size="sm"
-              variant="secondary"
-              className="h-9 px-3 bg-white/10 text-white/85 hover:bg-white/20"
-            >
-              <Link href="/login" aria-label="로그인 페이지로 이동">
-                로그인
-              </Link>
-            </Button>
+        <div className="hidden items-center gap-2 md:flex">
+          <Link
+            href="/login"
+            aria-label="로그인 페이지로 이동"
+            className="px-2 py-1 text-sm text-white/70 hover:text-white transition-colors"
+          >
+            로그인
+          </Link>
 
-            <Button asChild size="sm" className="h-9 px-4">
-              <Link href="/reserve" aria-label="지금 예약하기">
-                예약하기
-              </Link>
-            </Button>
-          </div>
+          <Button
+            asChild
+            size="sm"
+            variant="secondary"
+            className="h-9 px-3 bg-white/10 text-white/85 hover:bg-white/20"
+          >
+            <a href="tel:+82-10-0000-0000" aria-label="전화 문의">
+              <span className="inline-flex items-center">
+                <Phone className="mr-1.5 h-4 w-4" />
+                문의하기
+              </span>
+            </a>
+          </Button>
+
+          <Button asChild size="sm" className="h-9 px-4">
+            <Link href={RESERVE_URL} aria-label="지금 예약하기">
+              예약하기
+            </Link>
+          </Button>
         </div>
 
         <div className="md:hidden">
@@ -101,6 +113,7 @@ export default function Navbar() {
                 <Menu className="h-5 w-5" />
               </Button>
             </SheetTrigger>
+
             <SheetContent
               side="right"
               className="w-[80vw] border-white/10 bg-black/70 backdrop-blur-xl"
@@ -124,21 +137,30 @@ export default function Navbar() {
                   </Link>
                 ))}
 
-                <div className="mt-4 flex items-center gap-2">
+                <div className="mt-4 grid grid-cols-2 gap-2">
                   <Button
                     asChild
                     variant="secondary"
-                    className="flex-1 bg-white/10 text-white/85 hover:bg-white/20"
+                    className="bg-white/10 text-white/85 hover:bg-white/20"
                   >
                     <a href="tel:+82-10-0000-0000" aria-label="전화 문의(모바일)">
                       <Phone className="mr-2 h-4 w-4" />
-                      문의
+                      문의하기
                     </a>
                   </Button>
-                  <Button asChild className="flex-1">
-                    <Link href="/reserve" aria-label="지금 예약하기(모바일)">예약하기</Link>
+                  <Button asChild>
+                    <Link href={RESERVE_URL} aria-label="지금 예약하기(모바일)">
+                      예약하기
+                    </Link>
                   </Button>
                 </div>
+
+                <Link
+                  href="/login"
+                  className="mt-3 rounded-md px-2 py-2 text-sm text-white/70 hover:text-white"
+                >
+                  로그인
+                </Link>
               </div>
             </SheetContent>
           </Sheet>
