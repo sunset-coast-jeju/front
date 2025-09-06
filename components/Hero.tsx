@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import { RESERVE_URL } from "@/lib/constants";
 import { ChevronRight, Fish, Tent, Waves } from "lucide-react";
 import Link from "next/link";
 
@@ -12,7 +13,7 @@ export default function Hero() {
       className="relative isolate h-screen min-h-[640px] w-full overflow-hidden"
     >
       <video
-        src="/video/sunsetcoast-hero-video.mp4"
+        src="https://d2eyh5ov7r8see.cloudfront.net/sunsetcoast-hero-video.mp4"
         autoPlay
         loop
         muted
@@ -64,7 +65,7 @@ export default function Hero() {
           className="flex flex-wrap items-center gap-3"
         >
           <Button asChild size="lg" className="h-11 px-5 text-[15px]">
-            <Link href="/reserve" aria-label="지금 예약하기">
+            <Link href={RESERVE_URL} aria-label="지금 예약하기">
               지금 예약하기
               <ChevronRight className="ml-1.5 h-5 w-5" />
             </Link>

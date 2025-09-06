@@ -1,0 +1,1 @@
+export const RESERVE_URL = "https://booking.ddnayo.com/booking-calendar-status?accommodationId=16384";
