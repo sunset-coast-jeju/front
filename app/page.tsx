@@ -2,16 +2,50 @@ import React from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Separator } from "@/components/ui/separator";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { NavigationMenu, NavigationMenuItem, NavigationMenuList } from "@/components/ui/navigation-menu";
-import { MapPin, Phone, Mail, Menu, Fish, Stars, Waves, Tv2, Camera, Anchor, ChevronRight } from "lucide-react";
+import { MapPin, Phone, Mail, Fish, Stars, Waves, Anchor } from "lucide-react";
 import Navbar from "@/components/NavBar";
 import Hero from "@/components/Hero";
+import MediaSpotlight from "@/components/MediaSpotlight";
+import { CONTACT_TEL, MEDIA_ITEMS, RESERVE_URL } from "@/lib/constants";
+import Script from "next/script";
 
+function episodesToJsonLd() {
+  return MEDIA_ITEMS.map((m) => ({
+    "@type": "TVEpisode",
+    name: `${m.program}${m.episode ? ` ${m.episode}` : ""}`,
+    partOfSeries: { "@type": "TVSeries", name: m.program },
+    url: `https://your-domain.com/#${m.anchorId}`,
+    inLanguage: "ko",
+    image: `https://your-domain.com${m.coverSrc}`,
+    description: m.subtitle,
+  }));
+}
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LodgingBusiness",
+  name: "선셋코스트 (Sunset Coast)",
+  description: "제주 대정 바다 앞 감성 카라반 캠핑장. 제주 노을과 돌고래 명소로 유명한 숙소.",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "제주특별자치도 서귀포시 대정읍",
+  },
+  url: "https://your-domain.com/",
+  telephone: CONTACT_TEL,
+  image: [
+    "https://your-domain.com/media/hero1.jpg",
+    ...MEDIA_ITEMS.map((m) => `https://your-domain.com${m.coverSrc}`),
+  ],
+  makesOffer: {
+    "@type": "Offer",
+    url: RESERVE_URL,
+    availability: "https://schema.org/InStock",
+  },
+  areaServed: "Jeju, KR",
+  hasPart: episodesToJsonLd(),
+};
 
 // --- About Section ---
 function About() {
@@ -250,8 +284,15 @@ function Footer() {
 export default function JejuCaravanLanding() {
   return (
     <main className="min-h-svh scroll-smooth bg-white text-slate-900">
+      <Script
+        id="seo-jsonld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       <Navbar />
       <Hero />
+      <MediaSpotlight />
       <About />
       <Experience />
       <Reviews />

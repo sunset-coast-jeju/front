@@ -55,7 +55,7 @@ export default function Hero() {
           transition={{ delay: 0.18, duration: 0.4 }}
           className="max-w-2xl text-[15px] leading-relaxed text-zinc-100/75 md:text-base"
         >
-          제주의 노을과 바다, 그리고 한적한 밤의 불멍이 오래도록 기억되는 순간을 선물합니다.
+          제주의 노을과 바다, 그리고 한적한 밤의 분위기가 오래도록 기억되는 순간을 선물합니다.
         </motion.p>
 
         <motion.div
