@@ -5,7 +5,7 @@ import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { RESERVE_URL } from "@/lib/constants";
+import { RESERVE_URL, CONTACT_TEL } from "@/lib/constants";
 import { Menu, Phone, Waves } from "lucide-react";
 
 const NAV_ITEMS = [
@@ -86,7 +86,7 @@ export default function Navbar() {
             variant="secondary"
             className="h-9 px-3 bg-white/10 text-white/85 hover:bg-white/20"
           >
-            <a href="tel:+82-10-0000-0000" aria-label="전화 문의">
+            <a href={CONTACT_TEL} aria-label="전화 문의">
               <span className="inline-flex items-center">
                 <Phone className="mr-1.5 h-4 w-4" />
                 문의하기
