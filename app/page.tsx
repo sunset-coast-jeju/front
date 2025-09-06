@@ -14,11 +14,11 @@ import Script from "next/script";
 function episodesToJsonLd() {
   return MEDIA_ITEMS.map((m) => ({
     "@type": "TVEpisode",
-    name: `${m.program}${m.episode ? ` ${m.episode}` : ""}`,
-    partOfSeries: { "@type": "TVSeries", name: m.program },
-    url: `https://your-domain.com/#${m.anchorId}`,
+    // name: `${m.program}${m.episode ? ` ${m.episode}` : ""}`,
+    // partOfSeries: { "@type": "TVSeries", name: m.program },
+    // url: `https://your-domain.com/#${m.anchorId}`,
     inLanguage: "ko",
-    image: `https://your-domain.com${m.coverSrc}`,
+    // image: `https://your-domain.com${m.coverSrc}`,
     description: m.subtitle,
   }));
 }
@@ -32,12 +32,12 @@ const jsonLd = {
     "@type": "PostalAddress",
     addressLocality: "제주특별자치도 서귀포시 대정읍",
   },
-  url: "https://your-domain.com/",
+  url: "http://sunsetcoast.kr/",
   telephone: CONTACT_TEL,
-  image: [
-    "https://your-domain.com/media/hero1.jpg",
-    ...MEDIA_ITEMS.map((m) => `https://your-domain.com${m.coverSrc}`),
-  ],
+  // image: [
+  //   "https://your-domain.com/media/hero1.jpg",
+  //   ...MEDIA_ITEMS.map((m) => `https://your-domain.com${m.coverSrc}`),
+  // ],
   makesOffer: {
     "@type": "Offer",
     url: RESERVE_URL,
